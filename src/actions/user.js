@@ -1,10 +1,31 @@
 import * as userConstants from '../constants/user';
 
+const loginRequest = () => {
+  return new Promise((resolve) => {
+    window.setTimeout(()=>{
+      resolve({
+        isLogin: true,
+        nickname: '李杨',
+      })
+    }, 3000)
+  })
+}
+
 export const login = (payload) => {
-  return{
-    type: userConstants.USER_LOGIN,
-    payload,
+  return async (dispatch) => {
+    
+    dispatch(update({loading: true}))
+
+    const res = await loginRequest()
+    dispatch(update({
+      ...res,
+      loading: false,
+    }))
   }
+  // return{
+  //   type: userConstants.USER_LOGIN,
+  //   payload,
+  // }
 }
 
 export const logout = (payload) => {

@@ -15,7 +15,11 @@ class App extends Component {
         <div>
           {user.isLogin?'欢迎你':'未登录'}
         </div>
+        <div>{
+          user.loading?'正在加载中...':''
+        }</div>
         <button onClick={()=> this.props.dispatch(userActions.login({account: 'test', password: '123'}))}>登录</button>
+
       </header>
     </div>
     )

@@ -9,6 +9,7 @@ import {Provider} from 'react-redux'
 const store = Store({
   user: {
     isLogin: false,
+    loading: false,
   },
   city: {
     '029': '上海',
